@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.hypothesis/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Node / Vite / Astro
+node_modules/
+.vite/
+.astro/
+
+# Local env and secrets (.env holds only non-secret config and is committed)
+.env.local
+.env.*.local
+*.pem
+
+# OS and editors
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Personal Claude Code overrides
+.claude/settings.local.json
+CLAUDE.local.md
