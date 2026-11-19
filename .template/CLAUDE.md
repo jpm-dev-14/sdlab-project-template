@@ -6,6 +6,14 @@ Build {{NN}} of the System Design Lab. The lab-wide method, rules, skills and ho
 
 **What this build teaches:** {{LEARN}}
 
+## What it must deliver
+
+- **Demo:** {{DEMO}}
+- **Measurements:** {{MEASURE}}
+- **Load profile:** {{LOAD_PROFILE}}
+- **Primary stores:** {{STORES}}
+- **Blog angle:** {{BLOG_ANGLE}}
+
 ## Invariants
 
 The invariant checker (`loadtest/invariants/`) proves these after every load profile and chaos experiment. A run that violates one is a failed run, however fast it was.

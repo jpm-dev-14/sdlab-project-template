@@ -5,7 +5,7 @@ The skeleton every build copies once through the workspace's `/start-build` skil
 ## Rules
 
 - Skeleton and conventions only; no build-specific logic.
-- `.template/README.md` and `.template/CLAUDE.md` become the build's README and CLAUDE.md. Their placeholders must stay in sync with the `/start-build` skill: `{{NN}}`, `{{SLUG}}`, `{{TITLE}}`, `{{ONE_LINER}}`, `{{PROMPT}}`, `{{LEARN}}`, `{{INVARIANTS}}`, `{{STEPS}}`, `{{DATE}}`.
+- `.template/README.md` and `.template/CLAUDE.md` become the build's README and CLAUDE.md. Their placeholders must stay in sync with the `/start-build` skill: `{{NN}}`, `{{SLUG}}`, `{{TITLE}}`, `{{ONE_LINER}}`, `{{PROMPT}}`, `{{LEARN}}`, `{{DEMO}}`, `{{MEASURE}}`, `{{LOAD_PROFILE}}`, `{{STORES}}`, `{{BLOG_ANGLE}}`, `{{INVARIANTS}}`, `{{STEPS}}`, `{{DATE}}`.
 - Once Phase 0 lands, the template must always work: a fresh copy passes `make up && make load PROFILE=smoke` in CI.
 
 ## Phase 0 checklist (with sdlab-platform v0.1.0)
@@ -16,5 +16,6 @@ The skeleton every build copies once through the workspace's `/start-build` skil
 - [ ] `Makefile`, GNU make 3.81 compatible: `help up down seed load chaos results check test test-integration platform-upgrade`
 - [ ] `loadtest/`: k6 smoke profile (open model) and an invariant checker stub; results written through the platform exporter
 - [ ] `.devcontainer/` on `sdlab-dev`; `.pre-commit-config.yaml` with ruff, mypy, whitespace and YAML checks
-- [ ] `.github/workflows/ci.yml`: check, integration tests, k6 smoke; on `v*` tags, build and push the service images
+- [ ] The shared ruff and mypy settings present in the repo itself, so the editor, the host's format hook and `sdlab-dev check` in CI all apply the same rules
+- [ ] `.github/workflows/ci.yml`: check, integration tests, k6 smoke; on `v*` tags, build and push multi-arch service images as `ghcr.io/jpm-dev-14/<repo>-<service>:<vN>`
 - [ ] `web/` starter: Vite + React + TypeScript + Tailwind + shadcn/ui with the lab layout (controls left, system view middle, metrics right) and the shared components (LiveChart, EventLog, ControlPanel, ChaosButtons)
